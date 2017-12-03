@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "577182852219",
+    "firebase_url": "https://coshare-795d4.firebaseio.com",
+    "project_id": "coshare-795d4",
+    "storage_bucket": "coshare-795d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577182852219:android:aa44cb66984c3435",
+        "android_client_info": {
+          "package_name": "com.example.chris.coshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577182852219-a4o0ag3o85uodj6u1hfpf44bj1opmj0u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chris.coshare",
+            "certificate_hash": "08bbccc059042d38a223ae9aa67141ced58de78d"
+          }
+        },
+        {
+          "client_id": "577182852219-grmk4qohk62u4k9q3o3m2vulbc0a31gu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJUX8ZtDoEXudJLLqz0uB4DGIGX5GKtgo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577182852219-grmk4qohk62u4k9q3o3m2vulbc0a31gu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
