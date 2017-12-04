@@ -6,6 +6,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 /**
  * Created by chris on 5/12/2017.
  */
@@ -40,5 +42,25 @@ public class backend {
         else{
             return false; //seperate function to notify user "oh no it has booked"
         }
+    }
+
+    public ArrayList<String> getPersonalData(DataSnapshot dataSnapshot, String phoneNumber){
+        ArrayList<String> personalinfo=new ArrayList<>();
+        String name=dataSnapshot.child(phoneNumber).child("Owner Name").getValue().toString();
+        String PersonaltableLocation=dataSnapshot.child(phoneNumber).child("Table Info").child("Location").getValue().toString();
+        String PersonaltableID=dataSnapshot.child(phoneNumber).child("TableID").getValue().toString();
+        String PersononalBookingStatus=dataSnapshot.child(phoneNumber).child("Booking Status").getValue().toString();
+        personalinfo.add(name);
+        personalinfo.add(PersonaltableLocation);
+        personalinfo.add(PersonaltableID);
+        personalinfo.add(PersononalBookingStatus);
+
+        return personalinfo;
+    }
+
+    //snapshot is with reference to DatabaseReference locationName=DBref.child("Locations");
+    public String getOwnTableStatus(DataSnapshot dataSnapshot, String phoneNumber){
+
+
     }
 }
