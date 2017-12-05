@@ -29,8 +29,8 @@ public class backend {
         return name;
     }
 
-   /* public Boolean Book(DataSnapshot snapshot, String location, String tableid, int addpoint, String phoneno) { //snapshot at database
-        if (snapshot.child("Locations").child(location).child(tableid).child("Availability").getValue() == true) { //if table available
+    public Boolean Book(DataSnapshot snapshot, String location, String tableid, long addpoint, String phoneno) { //snapshot at database
+        if ((boolean)snapshot.child("Locations").child(location).child(tableid).child("Availability").getValue() == true) { //if table available
             DBrefLocations.child(location).child(tableid).child("Availability").setValue(false);  //not available anymore
             DBrefLocations.child(location).child(tableid).child("Occupant").setValue(DBrefUsers.child(phoneno).toString()); //fill in booker
             DBrefUsers.child(phoneno).child("Booking Status").setValue("booked"); //set user booking status to booked
@@ -45,7 +45,6 @@ public class backend {
             return false; //seperate function to notify user "oh no it has booked"
         }
     }
-    */
 
     public ArrayList<String> getPersonalData(DataSnapshot dataSnapshot, String phoneNumber) {
         ArrayList<String> personalinfo = new ArrayList<>();
