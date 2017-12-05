@@ -60,6 +60,10 @@ public class backend {
         return personalinfo;
     }
 
+    public String[][] getEntireTable(){
+        return null;
+    }
+
     //snapshot is with reference to DatabaseReference locationName=DBref.child("Locations");
     public String getOwnTableStatus(DataSnapshot dataSnapshot, String phoneNumber){
         return null;
