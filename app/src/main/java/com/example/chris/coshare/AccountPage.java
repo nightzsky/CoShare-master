@@ -72,7 +72,6 @@ public class AccountPage extends AppCompatActivity {
                 Long totalLocations=0L;
                 for(String i:location.keySet()){
                     totalLocations=totalLocations+location.get(i);
-                    Log.i("Check",i);
                 }
                 locationsVisited.setText(Long.toString(totalLocations));
 
