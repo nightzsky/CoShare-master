@@ -82,11 +82,13 @@ public class backend {
         return points;
     }
 
-    public HashMap<String,Long> getLocationsVisited(DataSnapshot dataSnapshot,String phoneNumber){
+    public HashMap<String,Long> getLocationsVisited(DataSnapshot dataSnapshot, String phoneNumber){
         HashMap<String,Long> loc=new HashMap();
-        Iterable<DataSnapshot> locations=dataSnapshot.child(phoneNumber).child("Locations").getChildren();
+        Iterable<DataSnapshot> locations=dataSnapshot.child("Locations").getChildren();
+        Log.i("check","Triggered");
         for(DataSnapshot dsp : locations){
             String key=dsp.getKey().toString();
+            Log.i("check",key);
             Long value=(Long) dsp.getValue();
             loc.put(key,value);
         }
