@@ -73,4 +73,10 @@ public class backend {
         return currentUser;
 
     }
-}   
+    //snapshot is with reference to DatabaseReference locationName=DBref.child("Locations");
+    public int getUserPoints(DataSnapshot dataSnapshot,String phoneNumber){
+        int points =(int) dataSnapshot.child(phoneNumber).child("points").getValue();
+
+        return points;
+    }
+}
