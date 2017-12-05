@@ -1,12 +1,14 @@
 package com.example.chris.coshare;
 
 import android.support.constraint.solver.widgets.Snapshot;
+import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by chris on 5/12/2017.
@@ -73,10 +75,23 @@ public class backend {
         return currentUser;
 
     }
-    //snapshot is with reference to DatabaseReference locationName=DBref.child("Locations");
+    //snapshot is with reference to DatabaseReference locationName=DBref.child("Users");
     public long getUserPoints(DataSnapshot dataSnapshot,String phoneNumber){
         long points =(long) dataSnapshot.child(phoneNumber).child("Points").getValue();
 
         return points;
+    }
+
+    public HashMap<String,Long> getLocationsVisited(DataSnapshot dataSnapshot, String phoneNumber){
+        HashMap<String,Long> loc=new HashMap();
+        Iterable<DataSnapshot> locations=dataSnapshot.child("Locations").getChildren();
+        Log.i("check","Triggered");
+        for(DataSnapshot dsp : locations){
+            String key=dsp.getKey().toString();
+            Log.i("check",key);
+            Long value=(Long) dsp.getValue();
+            loc.put(key,value);
+        }
+        return loc;
     }
 }
