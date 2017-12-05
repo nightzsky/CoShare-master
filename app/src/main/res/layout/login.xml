@@ -36,11 +36,11 @@ tools:context="com.example.chris.coshare.MainActivity">
     android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/inputuser"
+        android:id="@+id/inputUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/inputPw"
-        android:layout_alignStart="@+id/inputPw"
+        android:layout_alignLeft="@+id/inputPw"
         android:ems="12"
         android:fontFamily="sans-serif"
         android:hint="Username"
