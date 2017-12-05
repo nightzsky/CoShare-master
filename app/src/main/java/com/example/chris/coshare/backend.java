@@ -29,14 +29,17 @@ public class backend {
         return name;
     }
 
-    public Boolean Book(DataSnapshot snapshot, String location, String tableid, int addpoint) {
-        if(snapshot.child(location).child(tableid).child("Availability").toString()=="True"){ //if table available
-            DBrefLocations.child(location).child(tableid).child("Availability").setValue("False");  //not available anymore
-            DBrefLocations.child(location).child(tableid).child("Occupant").setValue(DBrefUsers.child("UserID(Phone number)").toString()); //fill in booker
-            DBrefUsers.child("UserID(Phone number)").child("Booking Status").setValue("False"); //set user booking status to booked
-            int points = Integer.parseInt(DBrefUsers.child("UserID(Phone number)").child("Points").toString().trim());
+    public Boolean Book(DataSnapshot snapshot, String location, String tableid, int addpoint, String phoneno) { //snapshot at database
+        if(snapshot.child("Locations").child(location).child(tableid).child("Availability").getValue()==true){ //if table available
+            DBrefLocations.child(location).child(tableid).child("Availability").setValue(false);  //not available anymore
+            DBrefLocations.child(location).child(tableid).child("Occupant").setValue(DBrefUsers.child(phoneno).toString()); //fill in booker
+            DBrefUsers.child(phoneno).child("Booking Status").setValue("booked"); //set user booking status to booked
+            int points = (int) snapshot.child("Users").child(phoneno).child("Points").getValue();
             points += addpoint; //yay gain points
-            DBrefUsers.child("UserID(Phone number)").child("Points").setValue(points); //update points
+            DBrefUsers.child(phoneno).child("Points").setValue(points); //update points
+            int locationcount = (int) snapshot.child("Users").child(phoneno).child("Locations").child(location).getValue();//retrieve location count
+            locationcount+=1; //increase by 1
+            DBrefUsers.child(phoneno).child("Locations").child(location).setValue(locationcount);//update locationcount
             return true;
         }
         else{
@@ -54,13 +57,11 @@ public class backend {
         personalinfo.add(PersonaltableLocation);
         personalinfo.add(PersonaltableID);
         personalinfo.add(PersononalBookingStatus);
-
         return personalinfo;
     }
 
     //snapshot is with reference to DatabaseReference locationName=DBref.child("Locations");
     public String getOwnTableStatus(DataSnapshot dataSnapshot, String phoneNumber){
         return null;
-
     }
 }
