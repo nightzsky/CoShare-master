@@ -29,7 +29,7 @@ public class backend {
         return name;
     }
 
-    public Boolean Book(DataSnapshot snapshot, String location, String tableid, int addpoint, String phoneno) { //snapshot at database
+   /* public Boolean Book(DataSnapshot snapshot, String location, String tableid, int addpoint, String phoneno) { //snapshot at database
         if (snapshot.child("Locations").child(location).child(tableid).child("Availability").getValue() == true) { //if table available
             DBrefLocations.child(location).child(tableid).child("Availability").setValue(false);  //not available anymore
             DBrefLocations.child(location).child(tableid).child("Occupant").setValue(DBrefUsers.child(phoneno).toString()); //fill in booker
@@ -45,12 +45,13 @@ public class backend {
             return false; //seperate function to notify user "oh no it has booked"
         }
     }
+    */
 
     public ArrayList<String> getPersonalData(DataSnapshot dataSnapshot, String phoneNumber) {
         ArrayList<String> personalinfo = new ArrayList<>();
         String name = dataSnapshot.child(phoneNumber).child("Owner Name").getValue().toString();
         String PersonaltableLocation = dataSnapshot.child(phoneNumber).child("Table Info").child("Location").getValue().toString();
-        String PersonaltableID = dataSnapshot.child(phoneNumber).child("TableID").getValue().toString();
+        String PersonaltableID = dataSnapshot.child(phoneNumber).child("Table Info").child("TableID").getValue().toString();
         String PersononalBookingStatus = dataSnapshot.child(phoneNumber).child("Booking Status").getValue().toString();
         personalinfo.add(name);
         personalinfo.add(PersonaltableLocation);
@@ -74,8 +75,8 @@ public class backend {
 
     }
     //snapshot is with reference to DatabaseReference locationName=DBref.child("Locations");
-    public int getUserPoints(DataSnapshot dataSnapshot,String phoneNumber){
-        int points =(int) dataSnapshot.child(phoneNumber).child("points").getValue();
+    public long getUserPoints(DataSnapshot dataSnapshot,String phoneNumber){
+        long points =(long) dataSnapshot.child(phoneNumber).child("Points").getValue();
 
         return points;
     }
