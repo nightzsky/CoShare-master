@@ -7,6 +7,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -61,8 +62,29 @@ public class backend {
         return personalinfo;
     }
 
-    public String[][] getEntireTable() {
-        return null;
+    public HashMap<ArrayList<String>,Boolean> getEntireTable(DataSnapshot dataSnapshot) {
+        HashMap<ArrayList<String>,Boolean> entiretable = new HashMap();
+        Iterable<DataSnapshot> locations = dataSnapshot.getChildren();
+        for(DataSnapshot location:locations){
+            String key1 = location.getKey().toString();
+            Iterable<DataSnapshot> tables = location.getChildren();
+            for (DataSnapshot table:tables) {
+                String key2 = table.getKey().toString();
+                ArrayList key = new ArrayList<String>();
+                key.add(key1);
+                key.add(key2);
+                Boolean value = (Boolean) table.child("Availability").getValue();
+                entiretable.put(key,value);
+            }
+        }
+        for (ArrayList<String> name: entiretable.keySet()){
+            for(String i:name){
+                System.out.println(i);
+            }
+            String value = entiretable.get(name).toString();
+            System.out.println(value);
+        }
+        return entiretable;
     }
 
     //snapshot is with reference to DatabaseReference locationName=DBref.child("Locations");
