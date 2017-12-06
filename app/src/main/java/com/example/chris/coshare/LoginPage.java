@@ -31,7 +31,7 @@ public class LoginPage extends AppCompatActivity {
                     if(passwordText.equals("123") && usernameText.equals("123") ){
                         Intent intent =new Intent(LoginPage.this, HomePage.class);
                         startActivity(intent);
-                        Toast.makeText(LoginPage.this, "LoginPage Success", Toast. LENGTH_SHORT).show();
+                        Toast.makeText(LoginPage.this, "Login Success", Toast. LENGTH_SHORT).show();
                     }
 
                     //username filled password blank
