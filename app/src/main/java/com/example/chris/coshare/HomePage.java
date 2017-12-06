@@ -26,10 +26,12 @@ public class HomePage extends AppCompatActivity {
 
     }
 
-    //Imagebutton link to account fragment
-    public void accountFragment (View view) {
+    //Imagebutton link to account activity
+    public void accountIntent (View view) {
         Intent intent =new Intent(HomePage.this, AccountPage.class);
         startActivity(intent);
     }
+
+    //add your intents here edmund
 
 }

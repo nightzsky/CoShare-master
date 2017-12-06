@@ -102,7 +102,7 @@
             android:layout_toRightOf="@+id/viewButton"
             android:background="@null"
             android:paddingRight="10dp"
-            android:onClick="accountFragment"
+            android:onClick="accountIntent"
             android:src="@drawable/accountbutton" />
 
     </RelativeLayout>
