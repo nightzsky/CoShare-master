@@ -11,58 +11,67 @@ import android.widget.Toast;
 public class LoginPage extends AppCompatActivity {
     EditText password;
     EditText username;
+    Button register;
+    Button submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        Button submit=(Button)findViewById(R.id.submitB);
+        submit=(Button)findViewById(R.id.submitB);
         password = (EditText)findViewById(R.id.inputPw);
         username = (EditText)findViewById(R.id.inputUser);
+        register = (Button) findViewById(R.id.signUp);
 
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String passwordText =password.getText().toString();
-                String usernameText = username.getText().toString();
-                if(!passwordText.trim().equals("") || !usernameText.trim().equals("")){
-                    //correct login
-                    if(passwordText.equals("123") && usernameText.equals("123") ){
-                        Intent intent =new Intent(LoginPage.this, HomePage.class);
-                        startActivity(intent);
-                        Toast.makeText(LoginPage.this, "Login Success", Toast. LENGTH_SHORT).show();
-                    }
+    }
 
-                    //username filled password blank
-                    else if (passwordText.trim().equals("")  && usernameText.equals("123") ){
-                        Toast.makeText(LoginPage.this, "Please input password", Toast. LENGTH_SHORT).show();
-                    }
+    public void submithere(View view){
 
-                    //password filled username blank
-                    else if (usernameText.trim().equals("")  && passwordText.equals("123") ){
-                        Toast.makeText(LoginPage.this, "Please input username", Toast. LENGTH_SHORT).show();
-                    }
-
-                    //username correct but password wrong
-                    else if (usernameText.equals("123")  && !passwordText.equals("123") ){
-                        Toast.makeText(LoginPage.this, "Wrong Password", Toast. LENGTH_SHORT).show();
-                    }
-
-                    //password correct but username wrong
-                    else if (!usernameText.equals("123")  && passwordText.equals("123") ){
-                        Toast.makeText(LoginPage.this, "Wrong Username", Toast. LENGTH_SHORT).show();
-                    }
-
-                    //both username and password wrong
-                    else if (!usernameText.equals("123")  && !passwordText.equals("123") ){
-                        Toast.makeText(LoginPage.this, "Wrong Username and Password", Toast. LENGTH_SHORT).show();
-                    }
-
-                } else{
-                    Toast.makeText(LoginPage.this, "Empty Username and Password", Toast.LENGTH_SHORT).show();
-                }
+        String passwordText =password.getText().toString();
+        String usernameText = username.getText().toString();
+        if(!passwordText.trim().equals("") || !usernameText.trim().equals("")){
+            //correct login
+            if(passwordText.equals("123") && usernameText.equals("123") ){
+                Intent intent =new Intent(LoginPage.this, HomePage.class);
+                startActivity(intent);
+                Toast.makeText(LoginPage.this, "LoginPage Success", Toast. LENGTH_SHORT).show();
             }
-        });
+
+            //username filled password blank
+            else if (passwordText.trim().equals("")  && usernameText.equals("123") ){
+                Toast.makeText(LoginPage.this, "Please input password", Toast. LENGTH_SHORT).show();
+            }
+
+            //password filled username blank
+            else if (usernameText.trim().equals("")  && passwordText.equals("123") ){
+                Toast.makeText(LoginPage.this, "Please input username", Toast. LENGTH_SHORT).show();
+            }
+
+            //username correct but password wrong
+            else if (usernameText.equals("123")  && !passwordText.equals("123") ){
+                Toast.makeText(LoginPage.this, "Wrong Password", Toast. LENGTH_SHORT).show();
+            }
+
+            //password correct but username wrong
+            else if (!usernameText.equals("123")  && passwordText.equals("123") ){
+                Toast.makeText(LoginPage.this, "Wrong Username", Toast. LENGTH_SHORT).show();
+            }
+
+            //both username and password wrong
+            else if (!usernameText.equals("123")  && !passwordText.equals("123") ){
+                Toast.makeText(LoginPage.this, "Wrong Username and Password", Toast. LENGTH_SHORT).show();
+            }
+
+        } else{
+            Toast.makeText(LoginPage.this, "Empty Username and Password", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    //intent @Qitai to the sign up page
+    public void registerhere (View view){
+        Toast.makeText(LoginPage.this, "Register!", Toast.LENGTH_SHORT).show();
     }
 }
