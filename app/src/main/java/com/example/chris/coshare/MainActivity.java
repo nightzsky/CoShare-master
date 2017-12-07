@@ -2,6 +2,7 @@ package com.example.chris.coshare;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         DBrefLocations.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.i("testing","data");
                 be.getEntireTable(dataSnapshot);
             }
 

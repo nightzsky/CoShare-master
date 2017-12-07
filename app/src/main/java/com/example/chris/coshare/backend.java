@@ -71,18 +71,18 @@ public class backend {
             for (DataSnapshot table:tables) {
                 String key2 = table.getKey().toString();
                 ArrayList key = new ArrayList<String>();
-                key.add(key1);
-                key.add(key2);
-                Boolean value = (Boolean) table.child("Availability").getValue();
+                key.add(key1); //locations
+                key.add(key2); //table number
+                Boolean value = (Boolean) table.child("Availability").getValue(); //status of the table number
                 entiretable.put(key,value);
             }
         }
         for (ArrayList<String> name: entiretable.keySet()){
             for(String i:name){
-                System.out.println(i);
+                Log.i("check",i);
             }
             String value = entiretable.get(name).toString();
-            System.out.println(value);
+            Log.i("check",value);
         }
         return entiretable;
     }
