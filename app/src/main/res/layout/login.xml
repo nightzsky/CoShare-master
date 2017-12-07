@@ -44,7 +44,7 @@ tools:context="com.example.chris.coshare.MainActivity">
         android:ems="12"
         android:fontFamily="sans-serif"
         android:hint="Username"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Large" />
 

@@ -22,9 +22,13 @@
 
         </activity>
         <activity
-            android:name=".AccountPage">
+            android:name=".AccountPage"
+            android:parentActivityName="com.example.chris.coshare.HomePage">
 
         </activity>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.chris.coshare.HomePage" />
     </application>
 
 </manifest>

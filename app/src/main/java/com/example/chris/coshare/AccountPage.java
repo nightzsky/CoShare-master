@@ -40,6 +40,7 @@ public class AccountPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.accountpage);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         phoneNumber="83423995";
         database= FirebaseDatabase.getInstance();
